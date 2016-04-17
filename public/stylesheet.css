@@ -1,0 +1,21 @@
+html { 
+	overflow-y: scroll; 
+}
+
+#output {
+	background-color: black;
+	color: gold;
+	margin: 5px;
+	display: inline-table;
+	padding: 5px;
+	word-wrap: normal;
+	border-radius: 10px;
+}
+li {
+	list-style-type: none;
+}
+#check {
+	float:right;
+}
+
+

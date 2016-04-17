@@ -1,0 +1,65 @@
+
+<script>
+(function () {
+
+    var html = document.childNodes[0], title = touch('h3'),
+    link = touch('a'), div = touch('div'), span = touch('span'),
+    br = touch('br'), img = touch('img');
+    
+    function touch(el) {
+        return document.createElement(el);
+    }
+    function setDiv() {
+        div.setAttribute('id', 'wrap');
+        div.style.marginLeft = '20px';
+        div.style.marginTop = '20px';
+        div.style.textAlign = 'center';
+    }
+    function setTitle() {
+        title.setAttribute('id', 'first');
+        title.style.fontFamily = 'Arial';
+        title.style.fontSize = '1.5em';
+        title.textContent = '404, not found?'; 
+        
+    }
+    function setSpan() {
+        span.setAttribute('id', 'span');
+        span.style.fontFamily = 'Arial';
+        span.style.fontSize = '1.5em';
+        span.textContent = 'Nothing exists here. Not even html on this page, '
+    }
+
+    function setLink() {
+        link.textContent = 'see?';
+        link.href = 'view-source:'+window.location;
+    }
+
+    function setImg() {
+        img.src = 'http://james.ragstand.com/img/notfound.png';
+        img.alt = 'not found';
+        img.style.width = '150px';
+        img.style.height = 'Auto';
+        img.style.marginTop = '50px';
+    }
+    
+
+
+    
+
+    setDiv();
+    setTitle();
+    setSpan();
+    setLink();
+    setImg();
+    
+    html.appendChild(div);
+    div.appendChild(title);
+    title.appendChild(br);
+    div.appendChild(span);
+    span.appendChild(link);
+    div.appendChild(br);
+
+    div.appendChild(img);
+    
+})();
+</script>
