@@ -2,7 +2,7 @@ html {
 	overflow-y: scroll; 
 }
 
-#output {
+#outputtt {
 	background-color: black;
 	color: gold;
 	margin: 5px;
@@ -16,6 +16,13 @@ li {
 }
 #check {
 	float:right;
+}
+.task-body {
+	padding-top: 50px;
+}
+
+#todo-list { 
+	margin-bottom: 30px;
 }
 
 

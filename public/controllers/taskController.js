@@ -1,12 +1,15 @@
-var jamesTodo = angular.module('jamesTodo', []);
+(function () {
+'use strict';
+angular
+    .module('jamesCookTask', [])
+    .controller('taskController', ['$scope', '$http', function ($scope, $http) { 
 
-function mainController($scope, $http) {
     $scope.formData = {};
 
 
     $http.get('/api/todos')
         .success(function(data) {
-            $scope.todos = data;
+            $scope.tasks = data;
             console.log(data);
         })
         .error(function(data) {
@@ -14,11 +17,11 @@ function mainController($scope, $http) {
         });
 
 
-    $scope.createTodo = function() {
+    $scope.createTask = function() {
         $http.post('/api/todos', $scope.formData)
             .success(function(data) {
                 $scope.formData = {}; 
-                $scope.todos = data;
+                $scope.tasks = data;
                 console.log(data);
             })
             .error(function(data) {
@@ -27,10 +30,10 @@ function mainController($scope, $http) {
     };
 
 
-    $scope.deleteTodo = function(id) {
+    $scope.deleteTask = function(id) {
         $http.delete('/api/todos/' + id)
             .success(function(data) {
-                $scope.todos = data;
+                $scope.tasks = data;
                 console.log(data);
             })
             .error(function(data) {
@@ -38,4 +41,5 @@ function mainController($scope, $http) {
             });
     };
 
-}
+}]);
+}());

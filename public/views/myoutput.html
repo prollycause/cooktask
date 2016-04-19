@@ -1,0 +1,23 @@
+<div ng-if='shown' id='output'>
+        <ul ng-repeat='recipe in recipes'>
+            <li>
+                <span>Name :  {{ recipe.name  }} </span>
+            </li>
+            <li>
+                <span>Author: {{ recipe.author }}</span>
+            </li>
+            <li>
+                <span>Ingredients: {{ recipe.ingredients }}</span>
+            </li>
+            <li>
+                <span>Instructions: {{ recipe.instructions }}</span>
+            </li>
+            <div class='btn-group'>
+                <button type='button' ng-click='editShow()' class='btn btn-primary'>Edit</button>
+
+                <button type='button'  ng-click='deleteRecipe(recipe._id)' class='btn btn-warning'>Delete</button>
+
+            </div>
+            <hr>
+        </ul>
+    </div>

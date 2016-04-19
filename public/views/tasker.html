@@ -1,0 +1,40 @@
+<!doctype html>
+<html ng-app='jamesCookTask'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Node/Angular Task App</title>
+    <link rel='stylesheet' href='//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css'>
+    <link rek='stylesheet' href='stylesheet.css'>
+</head>
+<body class='task-body' ng-controller='taskController'>
+    <div class='container'>
+        <div class='jumbotron text-center'>
+            <h1>Tasker <span class='label label-info'>{{ tasks.length }}</span></h1>
+        </div>
+        <div id='task-list' class='row'>
+            <div class='col-sm-4 col-sm-offset-4'>
+                <div class='checkbox' ng-repeat='task in tasks'>
+                    <label>
+                        <input type='checkbox' ng-click='deleteTask(task._id)'> {{ task.text }}
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div id='task-form' class='row'>
+            <div class='col-sm-8 col-sm-offset-2 text-center'>
+                <form>
+                    <div class='form-group'>
+                        <input type='text' class='form-control input-lg text-center' placeholder='Tap completed tasks to remove' ng-model='formData.text'>
+                    </div>
+                    <button type='submit' class='btn btn-primary btn-lg' ng-click='createTask()'>Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src='//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
+    <script src='//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js'></script>
+    <script src='../app.js'></script>
+    <script src='../controllers/taskController.js'></script>
+</body>
+</html>

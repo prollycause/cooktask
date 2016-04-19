@@ -10,7 +10,7 @@ var recipe = require('./routes/recipe.js');
 var todos = require('./routes/todos.js');
 var port = process.env.PORT || 8000;
 
-	app.use(express.static(__dirname + '/public'));
+	app.use(express.static(__dirname + '/public/'));
 	app.use(bodyParser.urlencoded({'extended':'true'})); // encode urls
 	app.use(bodyParser.json());  // use json
 	app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse vnd.api as json
@@ -20,7 +20,7 @@ var port = process.env.PORT || 8000;
 	app.use('/api/todos', todos);
 
 app.get('*', function(req, res) {
-    res.sendFile(__dirname + '/public/404.html'); 
+    res.sendFile(__dirname + '/public/views/404.html'); 
 });	
 
 app.listen(port);
