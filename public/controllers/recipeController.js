@@ -22,10 +22,9 @@ angular
         };
         
         $scope.create = function() {
-            // need to fix boolean issue so creationform works with ngif
             $scope.edit = false;
-            $scope.shown = false;
             $('#creationForm').show();
+            $('body').focus();
         };
 
         $http.get('/api/recipe')
@@ -62,9 +61,8 @@ angular
         $scope.updateRecipe = function(id) {
                 $http.put('/api/recipe/' + id, $scope.editData)
                     .success(function(data) {
-                        $scope.editData = {};
-                        $scope.recipes = data;
-                        location.reload();
+                       $scope.editData = {};
+                       $scope.create();
                     })
                     .error(function(data) {
                         console.log('Error: ' + data);

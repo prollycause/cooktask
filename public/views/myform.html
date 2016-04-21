@@ -1,10 +1,5 @@
-
 <form id='creationForm' role='form'>
     <h2 align='center'>Recipe Creator</h2>
-    <!--<ul class="nav nav-tabs">
-            <li class="active"><a href="#">View</a></li>
-            <li><a ng-click='editShow()' href="#">Edit</a></li>
-        </ul> -->
         <div class='form-group'>
             <label for='name'>Recipe Name</label>
             <input ng-model='formData.name' class='form-control' name='name' placeholder='Recipe Name' requried>
@@ -22,9 +17,8 @@
             <textarea rows='3' cols='30' class='form-control' placeholder='Add Instructions' name='instructions' ng-model='formData.instructions' requried></textarea>
         </div>
         <button type='submit' ng-click='createRecipe()' class='btn btn-default'>Submit</button>
-        
         <div id='check'>
             <input type="checkbox"  ng-model='shown' ng-init="shown = false">
             <span>Check to Show Data</span>
         </div>
-    </form>
+</form>

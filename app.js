@@ -1,20 +1,18 @@
-const express = require('express'), app = express(),
+const express = require('express'), app = express(), port = process.env.PORT || 8000,
 mongoose = require('mongoose'), morgan = require('morgan'),
 bodyParser = require('body-parser'), methodOverride = require('method-override'),
-router = express.Router(), parseUrlEncoded = bodyParser.urlencoded({'extended':'true'});
+router = express.Router(), parseUrlEncoded = bodyParser.urlencoded({'extended':'true'}),
+recipe = require('./routes/recipe.js'),  todos = require('./routes/todos.js');
 
 
 mongoose.connect('mongodb://localhost:27017/cooktask'); 
 
-var recipe = require('./routes/recipe.js');
-var todos = require('./routes/todos.js');
-var port = process.env.PORT || 8000;
 
 	app.use(express.static(__dirname + '/public/'));
-	app.use(bodyParser.urlencoded({'extended':'true'})); // encode urls
-	app.use(bodyParser.json());  // use json
-	app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse vnd.api as json
-	app.use(methodOverride());
+	app.use(bodyParser.urlencoded({'extended':'true'}));
+	app.use(bodyParser.json());
+	app.use(bodyParser.json({ type: 'application/vnd.api+json' })); 
+	app.use(methodOverride('X-HTTP-Method-Override'));
 	app.use(morgan('dev'));
 	app.use('/api/recipe', recipe);
 	app.use('/api/todos', todos);
@@ -24,4 +22,4 @@ app.get('*', function(req, res) {
 });	
 
 app.listen(port);
-console.log('Listening on: ' + port);
+console.log('CookTask is listening on port # ' + port + '.');
