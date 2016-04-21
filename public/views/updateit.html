@@ -1,29 +1,30 @@
- <div ng-if='edit && shown' id='output' ng-repeat='recipe in recipes'> 
-    <div id='opened' ng-init='rec = true'>
+ <div ng-if='edit && shown'> 
+    
         
         <form id='formtwo' role='form'>
-            <h2 align='center'>Editing {{ recipe.name }} by {{ recipe.author }} </h2>
+            <h2 align='center'>Editing {{ editData.name }} by {{ editData.author }} </h2>
+            
             <div class='form-group'>
-                <label for='editname'>{{recipes[$index].name }} </label>
-                <input ng-model='editData.name' class='form-control' id='editname' name='editname' placeholder='Edit {{ recipe.name }}'>
+                <label for='editname'>Name: </label>
+                <input ng-model='editData.name' class='form-control' name='editname' placeholder='Edit {{ editData.name }}'>
             </div>
             <div class='form-group'>
-                <label for='editauthor'>Author: {{ index }} </label>
-                <input class='form-control' id='editauthor' placeholder='Edit {{ recipe.author }}' name='editauthor' ng-model='editData.author'>
+                <label for='editauthor'>Author: </label>
+                <input class='form-control'  placeholder='Edit {{ editData.author }}' name='editauthor' ng-model='editData.author'>
             </div>
             <div class='form-group'>
                 <label for='editingredient'>Ingredients:</label>
-                <textarea rows='3' cols='30' class='form-control' id='editingredient' placeholder='Edit {{ recipe.ingredients }}' name='editingredients' ng-model='editData.ingredients'></textarea>
+                <textarea rows='3' cols='30' class='form-control' placeholder='Edit {{ editData.ingredients }}' name='editingredients' ng-model='editData.ingredients'></textarea>
             </div>
             <div class='form-group'>
                 <label for='editinstructions'>Instructions:</label>
-                <textarea rows='3' cols='30' class='form-control' id='editinstructions' placeholder='Edit {{ recipe.instructions }}' name='editinstructions' ng-model='editData.instructions'></textarea>
+                <textarea rows='3' cols='30' class='form-control'  placeholder='Edit {{ editData.instructions }}' name='editinstructions' ng-model='editData.instructions'></textarea>
             </div>
             
-            <button type='submit' ng-click='updateRecipe(recipe._id)' class='btn btn-default'>Submit</button>
+            <button type='submit' ng-click='updateRecipe(editData._id)' class='btn btn-default'>Submit</button>
             <button type='button' ng-click='create()' class='btn btn-success'>Back to Creator</button>
         </form>
-    </div>    
+    
 </div>
 
 

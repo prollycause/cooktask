@@ -1,3 +1,5 @@
+/* TODO: define controller for editData, fix boolean issue */
+
 (function () {
 
 'use strict';
@@ -7,16 +9,23 @@ angular
     .controller("recipeController", ["$scope", "$http", function ($scope, $http ) {
         $scope.formData = {};
         $scope.editData = {};
-            // sloppy and lazy
+            
         $scope.editShow = function() {
             $scope.edit = true;
-            $('#nameAuthor').hide();
+            $('#creationForm').hide();
+            $('body').focus();
+            for (var i =0; i < $scope.recipes.length;i++) {
+                if (this.$index === i) {
+                    $scope.editData = $scope.recipes[i];
+                }
+            }
         };
-            // sloppy and lazy
+        
         $scope.create = function() {
+            // need to fix boolean issue so creationform works with ngif
             $scope.edit = false;
             $scope.shown = false;
-            $('#nameAuthor').show();
+            $('#creationForm').show();
         };
 
         $http.get('/api/recipe')
@@ -26,7 +35,7 @@ angular
             .error(function(data) {
                 console.log('Error: ' + data);
         });
-
+            
         $scope.createRecipe = function() {
             $http.post('/api/recipe', $scope.formData)
                 .success(function(data) {
@@ -39,8 +48,8 @@ angular
         };
 
         $scope.deleteRecipe = function(id) {
-            $scope.sure = confirm('this will delete this recipe');
-            if ($scope.sure)
+            var sure = confirm('This will delete the recipe, Sure?');
+            if (sure)
             $http.delete('/api/recipe/' + id)
                 .success(function(data) {
                     $scope.recipes = data;
@@ -55,14 +64,13 @@ angular
                     .success(function(data) {
                         $scope.editData = {};
                         $scope.recipes = data;
-                        console.log('success! here is data: ' + data);
                         location.reload();
                     })
                     .error(function(data) {
                         console.log('Error: ' + data);
-        });};
-        
+        });};        
 }])
+
     .directive('myform', function () {
         return {
             restrict: 'E',

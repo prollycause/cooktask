@@ -1,21 +1,25 @@
 
-<form id='nameAuthor' role='form'>
+<form id='creationForm' role='form'>
     <h2 align='center'>Recipe Creator</h2>
+    <!--<ul class="nav nav-tabs">
+            <li class="active"><a href="#">View</a></li>
+            <li><a ng-click='editShow()' href="#">Edit</a></li>
+        </ul> -->
         <div class='form-group'>
             <label for='name'>Recipe Name</label>
-            <input ng-model='formData.name' class='form-control' id='name' name='name' placeholder='Recipe Name' requried>
+            <input ng-model='formData.name' class='form-control' name='name' placeholder='Recipe Name' requried>
         </div>
         <div class='form-group'>
             <label for='author'>Author:</label>
-            <input class='form-control' id='author' placeholder='Your Name' name='author' ng-model='formData.author' requried>
+            <input class='form-control' placeholder='Your Name' name='author' ng-model='formData.author' requried>
         </div>
         <div class='form-group'>
             <label for='ingredient'>Ingredients:</label>
-            <textarea rows='3' cols='30' class='form-control' id='ingredient' placeholder='Add Ingredients' name='ingredients' ng-model='formData.ingredients' requried></textarea>
+            <textarea rows='3' cols='30' class='form-control' placeholder='Add Ingredients' name='ingredients' ng-model='formData.ingredients' requried></textarea>
         </div>
         <div class='form-group'>
             <label for='instructions'>Instructions:</label>
-            <textarea rows='3' cols='30' class='form-control' id='instructions' placeholder='Add Instructions' name='instructions' ng-model='formData.instructions' requried></textarea>
+            <textarea rows='3' cols='30' class='form-control' placeholder='Add Instructions' name='instructions' ng-model='formData.instructions' requried></textarea>
         </div>
         <button type='submit' ng-click='createRecipe()' class='btn btn-default'>Submit</button>
         

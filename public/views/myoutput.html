@@ -1,4 +1,5 @@
-<div ng-if='shown' id='output'>
+<div id='output'ng-if='shown'>
+        <h3 id='message' text-align='center'>Showing {{ recipes.length }} recipes.</h3>
         <ul ng-repeat='recipe in recipes'>
             <li>
                 <span>Name :  {{ recipe.name  }} </span>
@@ -13,7 +14,7 @@
                 <span>Instructions: {{ recipe.instructions }}</span>
             </li>
             <div class='btn-group'>
-                <button type='button' ng-click='editShow()' class='btn btn-primary'>Edit</button>
+                <button type='button' id='{{recipes[$index]._id}}'  ng-click='editShow()' class='btn btn-primary'>Edit</button>
 
                 <button type='button'  ng-click='deleteRecipe(recipe._id)' class='btn btn-warning'>Delete</button>
 
