@@ -66,7 +66,8 @@ angular
                     })
                     .error(function(data) {
                         console.log('Error: ' + data);
-        });};        
+                    });
+        };        
 }])
 
     .directive('myform', function () {

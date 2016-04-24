@@ -12,6 +12,7 @@
     "morgan"     : "~1.7.0",
     "body-parser": "~1.15.0",
     "method-override": "~2.3.5",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "dictionaryapi" :"~0.0.1"
     }
 }
